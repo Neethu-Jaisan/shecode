@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Us</title>
+    <style>
+        /* CSS styles for contact information */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            margin-bottom: 10px;
+        }
+        
+        .contact-info strong {
+            display: inline-block;
+            width: 100px;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p><strong>Company Name:</strong> ACME Corporation</p>
+            <p><strong>Address:</strong> 123 Main Street, City, State, ZIP</p>
+            <p><strong>Phone:</strong> 123-456-7890</p>
+            <p><strong>Email:</strong> info@example.com</p>
+        </div>
+    </div>
+</body>
+
+</html>
