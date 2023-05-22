@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Room</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #messages {
+      margin-top: 20px;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    #messages li {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #f2f2f2;
+      border-radius: 4px;
+    }
+
+    #messages li:last-child {
+      margin-bottom: 0;
+    }
+
+    #chat {
+      display: none;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+  <script>
+    var socket = io();
+
+    function joinChat() {
+      var username = document.getElementById('username').value;
+      var room = document.getElementById('room').value;
+
+      if (username && room) {
+        socket.emit('join', { username: username, room: room });
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('chat').style.display = 'block';
+      }
+    }
+
+    function leaveChat() {
+      var username = document.getElementById('username').value;
+      socket.emit('leave', { username: username });
+      document.getElementById('login').style.display = 'block';
+      document.getElementById('chat').style.display = 'none';
+      document.getElementById('messages').innerHTML = '';
+    }
+
+    function sendMessage() {
+      var username = document.getElementById('username').value;
+      var message = document.getElementById('message').value;
+
+      if (message) {
+        socket.emit('message', { username: username, message: message });
+        document.getElementById('message').value = '';
+      }
+    }
+
+    socket.on('user_join', function(data) {
+      var message = data.username + ' has joined the chat.';
+      var listItem = document.createElement('li');
+      listItem.textContent = message;
+      document.getElementById('messages').appendChild(listItem);
+    });
+
+    socket.on('user_leave', function(data) {
+      var message = data.username + ' has left the chat.';
+      var listItem = document.createElement('li');
+      listItem.textContent = message;
+      document.getElementById('messages').appendChild(listItem);
+    });
+
+    socket.on('message', function(data) {
+      var message = data.username + ': ' + data.message;
+      var listItem = document.createElement('li');
+      listItem.textContent = message;
+      document.getElementById('messages').appendChild(listItem);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Chat Room</h1>
+
+    <div id="login">
+      <div class="form-group">
+        <input type="text" id="username" placeholder="Enter your username" />
+      </div>
+      <div class="form-group">
+        <input type="text" id="room" placeholder="Enter the room name" />
+      </div>
+      <div class="form-group">
+        <button onclick="joinChat()">Join</button>
+      </div>
+    </div>
+
+    <div id="chat">
+      <button onclick="leaveChat()">Leave</button>
+      <ul id="messages"></ul>
+      <div class="form-group">
+        <input type="text" id="message" placeholder="Type your message" />
+      </div>
+      <div class="form-group">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
