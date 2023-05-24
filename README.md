@@ -25,4 +25,4 @@ To use this code, follow these steps:
 
 ## Contributing
 
-Contributions are done by fellow team mates
+Contributions are done by fellow team mates from all the beginner level knowledge that we currently have. 
