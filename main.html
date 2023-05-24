@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>She Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul.sub-menu {
+      display: none;
+    }
+
+    nav ul.sub-menu li {
+      margin-right: 5px;
+    }
+
+    nav ul li:hover ul.sub-menu {
+      display: block;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li ul.sub-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #FFB6C1;
+      padding: 5px 0;
+      z-index: 1;
+    }
+
+    nav ul li:hover ul.sub-menu {
+      display: block;
+    }
+
+    nav ul li ul.sub-menu li {
+      display: block;
+      margin-right: 0;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+   
+    /* Clearfix for float containers */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+	
+    }
+
+    /* Responsive layout */
+    .menu {
+      float: left;
+      width: 20%;
+    }
+
+    .menuitem {
+      padding: 8px;
+      margin-top: 7px;
+      border-bottom: 1px solid #f1f1f1;
+	background-color: "ivory";
+    }
+
+    .main {
+      float: left;
+      width: 60%;
+      padding: 0 20px;
+      overflow: hidden;
+    }
+    .image-container {
+      text-align: center;
+    }
+
+    .image-container img {
+      width: 200px;
+      height: 200px;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width:800px) {
+      /* For tablets: */
+      .main {
+        width: 80%;
+        padding: 0;
+      }
+      .right {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (max-width:500px) {
+      /* For mobile phones: */
+      .menu, .main, .right {
+        width: 100%;
+      }
+.chatbot {
+        position: float14:26 24-05-2023;
+        bottom: 20px;
+        left: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background-color: #007bff;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    .chat-window {
+        position: float;
+        bottom: 100px;
+        left: 20px;
+        width: 300px;
+        height: 400px;
+        background-color: #20B2AA;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        display: block;
+    }
+
+    .chat-header {
+        background-color: #20B2AA;
+        color: #fff;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .chat-content {
+        padding: 10px;
+        height: 300px;
+        overflow-y: scroll;
+    }
+
+    .chat-input {
+        padding: 10px;
+    }
+   footer {
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+      font-size: 12px;
+}
+    }
+  </style>
+</head>
+<body bgcolor ="D3D3D3">
+  <div class="content">
+    <div style="background-color:#f1f1f1;padding:80px;">
+      <h1 style="font-family: 'Raleway'; display: inline-block;">ONE VOICE</h1>
+      <h3 style="display: inline-block;"><i><BR><BR>"When we speak as one, our impact multiplies."
+</i></h3>
+      <img src="C:\Users\Admin\Desktop\hack\logo.jfif" alt="Logo" height="250" width="250" style="float: right";>
+    </div>
+
+    <div style="overflow:auto" class="clearfix">
+      <div class="menu">
+        <div class="menuitem"><a href="C:\Users\Admin\Desktop\hack\login.html"><img src="C:\Users\Admin\Desktop\hack\home.png" width= 25% height="auto"><br> Home</a></div>
+        <div class="menuitem"><a href="C:\Users\Admin\Desktop\hack\profile.html"><img src="C:\Users\Admin\Desktop\hack\prof.png" width= 25% height="auto"><br>Profile</a></div>
+       
+        <div class="menuitem">
+          <a href="#career"><img src="C:\Users\Admin\Desktop\hack\career.png" width= 25% height="auto"><br>Career</a>
+          <ul class="sub-menu">
+            <li><a href="#hiring">Recruiters👔</a></li>
+            <li><a href="#job-request">Seekers🔎</a></li>
+            <li><a href="#job-reservation">Guidance👣</a></li>
+          </ul>
+        </div>
+        
+   <div class="chatbot" onclick="toggleChatWindow()"><h1>👋☺️</h1></div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            Hi there how can I assist you?
+            <span style="float: right; cursor: pointer;" onclick="toggleChatWindow()"></span>
+        </div>
+        <div class="chat-content" id="chatContent"></div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+      <script>
+        function toggleChatWindow() {
+            var chatWindow = document.getElementById('chatWindow');
+            chatWindow.style.display = chatWindow.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function sendMessage() {
+            var messageInput = document.getElementById('chatInput');
+            var message = messageInput.value;
+            if (message.trim() !== '') {
+                appendMessage('user', message);
+                // Once you receive the response, appendMessage('bot', response) to display the chatbot's reply
+                messageInput.value = ''; // Clear the input field after sending the message
+            }
+        }
+
+        function appendMessage(sender, message) {
+            var chatContent = document.getElementById('chatContent');
+            var messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.innerHTML = '<span>' + message + '</span>';
+            chatContent.appendChild(messageElement);
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }
+    </script>
+      </div>
+
+
+      <div class="main">
+        <h2>About us</h2>
+        <p>Our solution is a social platform connecting marginalized individuals, fostering networks, free skills development, and providing information on benefits, scholarships, and job opportunities. Here, people can offer skills, jobs, and organize public meetings on specific topics of interest, respecting Indian constitutional principles.</p>
+<div class="image-container">
+    <a href="C:\Users\Admin\Desktop\hack\chat room.htm">
+      <img align= "right" src="C:\Users\Admin\Desktop\hack\round.png" alt="ROUND TABLE" >
+    </a>
+  </div>
+<div class="image-container">
+	<a href="C:\Users\Admin\Desktop\hack\education.html">
+        <img src="C:\Users\Admin\Desktop\hack\[removal.ai]_63b79b67-2855-4a0d-950b-dd85dc7f6675.png" alt="App Image">
+      </div>
+    </div>
+
+<div class="image-container">
+	<a href="C:\Users\Admin\Desktop\hack\tales.html">
+        <img align= "middle" src="C:\Users\Admin\Desktop\hack\tales-fotor-bg-remover-20230524205127.png" alt="App Image"></a>
+      </div>
+    </div>
+<div class="content">
+<div style="background-color:#f1f1f1;padding:20px;text-align: center;">
+ <footer>
+      This web page is a part of a demonstration for a hackathon by She Code.
+    </footer>
+  </div>
+
+</body>
+</html>

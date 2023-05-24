@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TALES: Picture Hosting and Caption Writing</title>
+  <style>
+    /* CSS styling for the page */
+    body {
+      background-color: #E6E6FA; 
+    }
+
+    /* CSS styling for the feed */
+    .feed {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .feed-item {
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      background-color: #fff; /* White background for each feed item */
+    }
+
+    .feed-item img {
+      width: 100%;
+    }
+
+    .feed-item .caption {
+      margin-top: 10px;
+    }
+
+    .feed-item .interactions {
+      margin-top: 10px;
+    }
+
+    .interactions button {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>TALES:<br>Share your thoughts</h1>
+  
+  <!-- Image Upload Form -->
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" required><br>
+    <textarea name="caption" placeholder="Enter caption" required></textarea><br>
+    <input type="submit" value="Upload">
+  </form>
+  
+  <!-- Display Uploaded Images and Captions as Instagram-like Feed -->
+  <div class="feed">
+    <!-- PHP or JavaScript code can be used here to retrieve and display the uploaded images and captions -->
+    <div class="feed-item">
+      <img src="C:\Users\Admin\Desktop\hack\image1.png" alt="Image 1">
+      <div class="caption">Caption 1</div>
+      <div class="interactions">
+        <button onclick="likePost(1)">Like</button>
+        <button onclick="commentPost(1)">Comment</button>
+        <button onclick="sharePost(1)">Share</button>
+      </div>
+    </div>
+    <div class="feed-item">
+      <img src="C:\Users\Admin\Desktop\hack\image2.png" alt="Image 2">
+      <div class="caption">Caption 2</div>
+      <div class="interactions">
+        <button onclick="likePost(2)">Like</button>
+        <button onclick="commentPost(2)">Comment</button>
+        <button onclick="sharePost(2)">Share</button>
+      </div>
+    </div>
+    <!-- Add more feed items dynamically using server-side scripting or JavaScript -->
+  </div>
+
+  <script>
+    function likePost(postId) {
+      // Perform like action for the given postId
+      console.log("Liked post with ID: " + postId);
+    }
+
+    function commentPost(postId) {
+      // Perform comment action for the given postId
+      console.log("Commented on post with ID: " + postId);
+    }
+
+    function sharePost(postId) {
+      // Perform share action for the given postId
+      console.log("Shared post with ID: " + postId);
+    }
+  </script>
+</body>
+</html>
