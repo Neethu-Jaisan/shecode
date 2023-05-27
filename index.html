@@ -46,7 +46,19 @@
       padding: 5px 0;
       z-index: 1;
     }
+  .transition-text {
+    opacity: 0;
+    animation: fade-in 1s ease-in forwards;
+  }
 
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
     nav ul li:hover ul.sub-menu {
       display: block;
     }
@@ -72,15 +84,52 @@
     /* Responsive layout */
     .menu {
       float: left;
-      width: 20%;
+      width: 30%;
     }
+  .menuitemc {
+    position: relative;
+  }
 
+  .menuitemc ul.sub-menu {
+    display: none;
+    position: relative;
+    top: 100%;
+    left: 0;
+    background-color: #D4E6F1;
+    padding: 5px 0;
+    z-index: 1;
+  }
+
+  .menuitemc:hover ul.sub-menu {
+    display: block;
+  }
+
+  /* Additional styles for the submenu */
+  .menuitemc ul.sub-menu li {
+    display: block;
+    margin-right: 20px;
+  }
     .menuitem {
       padding: 8px;
       margin-top: 7px;
       border-bottom: 1px solid #f1f1f1;
 	background-color: "ivory";
     }
+  #logo {
+    opacity: 0;
+    animation: fade-in 2s ease-in forwards;
+    border: 2px solid #000000; /* Set the border properties */
+    border-radius: 5px;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
     .main {
       float: left;
@@ -91,6 +140,13 @@
     .image-container {
       text-align: center;
     }
+  #round-image {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #round-image:hover {
+    transform: scale(1.2);
+  }
 
     .image-container img {
       width: 200px;
@@ -169,30 +225,34 @@
     }
   </style>
 </head>
-<body bgcolor ="D3D3D3">
+<body bgcolor ="D4E6F1">
   <div class="content">
     <div style="background-color:#f1f1f1;padding:80px;">
-      <h1 style="font-family: 'Raleway'; display: inline-block;">ONE VOICE</h1>
-      <h3 style="display: inline-block;"><i><BR><BR>"When we speak as one, our impact multiplies."
-</i></h3>
-      <img src="C:\Users\Admin\Desktop\hack\logo.jfif" alt="Logo" height="250" width="250" style="float: right";>
+      <h1 style="font-family: 'Comic Sans MS';  display: inline-block;">ONE VOICE</h1><br>
+      <h3 style="display: inline-block;"><span class="transition-text">'When we speak as one, our impact multiplies'.</span></h3>
+
+      <img id="logo"  src="C:\Users\Admin\Desktop\hack\logo.jfif" alt="Logo" height="300" width="300" style="float: right";>
     </div>
 
     <div style="overflow:auto" class="clearfix">
       <div class="menu">
-        <div class="menuitem"><a href="C:\Users\Admin\Desktop\hack\login.html"><img src="C:\Users\Admin\Desktop\hack\home.png" width= 25% height="auto"><br> Home</a></div>
-        <div class="menuitem"><a href="C:\Users\Admin\Desktop\hack\profile.html"><img src="C:\Users\Admin\Desktop\hack\prof.png" width= 25% height="auto"><br>Profile</a></div>
+        <div class="menuitem"><a href="C:\Users\Admin\Desktop\hack\login.html"><img id="round-image" src="C:\Users\Admin\Desktop\hack\home.png" width= 25% height="auto"><br>Login/Sign up</a></div>
+        <div class="menuitem"><a href="C:\Users\Admin\Desktop\hack\profile.html"><img id="round-image" src="C:\Users\Admin\Desktop\hack\prof.png" width= 25% height="auto"><br>Profile</a></div>
        
-        <div class="menuitem">
-          <a href="#career"><img src="C:\Users\Admin\Desktop\hack\career.png" width= 25% height="auto"><br>Career</a>
-          <ul class="sub-menu">
-            <li><a href="#hiring">Recruiters👔</a></li>
-            <li><a href="#job-request">Seekers🔎</a></li>
-            <li><a href="#job-reservation">Guidance👣</a></li>
-          </ul>
-        </div>
+        <div class="menuitemc">
+  <a href="#career">
+    <img img id="round-image" src="C:\Users\Admin\Desktop\hack\career.png" width="25%" height="auto"><br>
+    Career
+  </a>
+  <ul class="sub-menu">
+    <li><a href="#hiring">Recruiters👔</a></li>
+    <li><a href="#job-request">Seekers🔎</a></li>
+    <li><a href="#job-reservation">Guidance👣</a></li>
+  </ul>
+</div>
+
         
-   <div class="chatbot" onclick="toggleChatWindow()"><h1>👋☺️</h1></div>
+   <div class="chatbot" onclick="toggleChatWindow()"><img id="round-image" src="C:\Users\Admin\Desktop\hack\chatbot.png" alt="chatbot" width=40% height= "auto"></div>
 
     <div class="chat-window" id="chatWindow">
         <div class="chat-header">
@@ -239,23 +299,23 @@
         <p>Our solution is a social platform connecting marginalized individuals, fostering networks, free skills development, and providing information on benefits, scholarships, and job opportunities. Here, people can offer skills, jobs, and organize public meetings on specific topics of interest, respecting Indian constitutional principles.</p>
 <div class="image-container">
     <a href="C:\Users\Admin\Desktop\hack\chat room.htm">
-      <img align= "right" src="C:\Users\Admin\Desktop\hack\round.png" alt="ROUND TABLE" >
+      <img id="round-image" align= "right" src="C:\Users\Admin\Desktop\hack\round.png" alt="ROUND TABLE" >
     </a>
   </div>
 <div class="image-container">
 	<a href="C:\Users\Admin\Desktop\hack\education.html">
-        <img src="C:\Users\Admin\Desktop\hack\[removal.ai]_63b79b67-2855-4a0d-950b-dd85dc7f6675.png" alt="App Image">
+        <img id="round-image" src="C:\Users\Admin\Desktop\hack\[removal.ai]_63b79b67-2855-4a0d-950b-dd85dc7f6675.png" alt="App Image">
       </div>
     </div>
 
 <div class="image-container">
 	<a href="C:\Users\Admin\Desktop\hack\tales.html">
-        <img align= "middle" src="C:\Users\Admin\Desktop\hack\tales-fotor-bg-remover-20230524205127.png" alt="App Image"></a>
+        <img id="round-image" align= "middle" src="C:\Users\Admin\Desktop\hack\tales-fotor-bg-remover-20230524205127.png" alt="App Image"></a>
       </div>
     </div>
 <div class="image-container">
 	<a href="C:\Users\Admin\Desktop\hack\contact.html">
-        <img align= "right" src= "C:\Users\Admin\Desktop\hack\contact.png" alt="App Image"></a>
+        <img id="round-image" align= "right" src= "C:\Users\Admin\Desktop\hack\contact.png" alt="App Image"></a>
       </div>
     </div>
 
