@@ -44,9 +44,13 @@
       // Simulate login or sign-up action
       // Replace this with your actual login or sign-up logic
       if (event.target.getAttribute('id') === 'loginForm') {
+        // Perform login logic here
         alert(`Logged in with username: ${username}`);
+        window.location.href = 'index.html'; // Redirect to index.html
       } else if (event.target.getAttribute('id') === 'signupForm') {
+        // Perform sign-up logic here
         alert(`Signed up with username: ${username}`);
+        window.location.href = 'index.html'; // Redirect to index.html
       }
 
       document.getElementById('username').value = '';
@@ -54,7 +58,7 @@
     }
   </script>
 </head>
-<body bgcolor = "	F0FFFF"
+<body bgcolor="F0FFFF">
   <div class="login-container">
     <h2>Login or Sign Up</h2>
     <form id="loginForm" onsubmit="handleFormSubmit(event)">
